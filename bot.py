@@ -57,7 +57,7 @@ async def set_hours(ctx, *args):
     global run_start_hour
     global run_end_hour
     global run_default
-            global overnight
+    global overnight
     
     if(args[0] == "12" and args[1].lower() == "am"):
         run_start_hour = 0
