@@ -67,7 +67,7 @@ async def checkForBong():
     t = time.localtime()
     current_time = time.strftime("%H:%M:%S", t)
     
-    if(t.tm_min == t.tm_min and t.tm_sec == t.tm_sec):
+    if(t.tm_min == 0 and t.tm_sec == 0):
         numBongs = t.tm_hour % 12
         await joinAndBong(numBongs)
     # else:
