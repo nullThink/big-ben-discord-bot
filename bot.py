@@ -35,11 +35,20 @@ async def hours(ctx):
     global run_end_hour
     global run_default
     
+    message = ""
+    
     if(not run_default):
-        await ctx.send(str(run_start_hour) + " - " + str(run_end_hour))
+        message = str(run_start_hour) + " - " + str(run_end_hour)
     else:
-        await ctx.send("No declared hours.")
+        message = "No declared hours."
+    
+    await ctx.send(message)
+    # if(not run_default):
+    #     await ctx.send()
+    # else:
+    #     await ctx.send("No declared hours.")
 
+#resets the working hour range
 @client.command()
 async def reset(ctx):
     global run_start_hour
@@ -49,6 +58,7 @@ async def reset(ctx):
     run_start_hour = 0
     run_end_hour = 0
     run_default = True
+    
     await ctx.send("Hours reset!")
 
 @client.command()
@@ -70,7 +80,7 @@ async def set_hours(ctx, *args):
             run_start_hour = run_start_hour + 12
         
     if(args[2] == "12" and args[3].lower() == "am"):
-        run_end_hour = 0
+        run_end_hour = 24
     elif(args[2] == "12" and args[3].lower() == "pm"):
         run_end_hour = 12
     else:
@@ -84,6 +94,7 @@ async def set_hours(ctx, *args):
     
     run_default = False
     
+    await ctx.send("Hours of operation set to " + args[0] + " " + args[1].upper() + " - " + args[2] + " " + args[3].upper())
     #print(str(run_start_hour) + " - " + str(run_end_hour))
 
 @client.event
