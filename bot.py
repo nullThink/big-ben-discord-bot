@@ -6,7 +6,7 @@ import time
 
 from discord.ext import commands, tasks
 
-TOKEN = 'ODU1NTQwNTkxMzA3MTI4ODk0.YMz-RA.Jg12YgPaMGScphTuoMMxwuKG6x4'
+TOKEN = 'ODU1NTQwNTkxMzA3MTI4ODk0.YMz-RA.6rSrFMNFHPR3F2eH0YC7TaHhCX8'
 client = commands.Bot(command_prefix = '.')
 
 vc_list = []
